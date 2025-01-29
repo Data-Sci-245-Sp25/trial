@@ -1,0 +1,29 @@
+```{r}
+#install and load packages
+install.packages("tidyverse")
+install.packages("lubridate")
+library(tidyverse)
+library(lubridate)
+```
+
+```{r}
+#use year( ) function from functions folder
+source("/cloud/project/functions/cleaning.R")
+
+OpenData_Arrests_All2 <- OpenData_Arrests_All %>%
+  mutate(extracted_year = extract_year(Date))
+
+```
+
+```{r}
+#group by summarize
+OpenData_Arrests_All %>%
+  group_by(extracted_year)%>%
+  summarize(avg)
+```
+
+```{r}
+ggplot(data=OpenData_Arrests_All, mapping=aes(x=extracted_year, y =""))+
+  geom_bar()
+```
+
