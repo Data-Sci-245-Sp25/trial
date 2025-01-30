@@ -10,6 +10,8 @@ library(lubridate)
 #use year( ) function from functions folder
 source("/cloud/project/functions/cleaning.R")
 
+OpenData_Arrests_All<-read_csv("data/OpenData-Arrests-All.csv")
+
 OpenData_Arrests_All2 <- OpenData_Arrests_All %>%
   mutate(extracted_year = extract_year(Date))
 
